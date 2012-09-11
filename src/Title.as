@@ -10,7 +10,8 @@ package
 			y = yin;
 			
 			graphic = new Text("Corvus", 0, 0);
-			(graphic as Text).size = 400;
+			(graphic as Text).size = 1000; // seems like it's capped at something
+			(graphic as Text).centerOrigin();
 			
 		}
 
@@ -20,7 +21,7 @@ package
 			
 			// Fade out the title
 			if ( (graphic as Text).alpha != 0 )
-				(graphic as Text).alpha -= 0.009
+				(graphic as Text).alpha -= 0.006
 		}
 
 	}

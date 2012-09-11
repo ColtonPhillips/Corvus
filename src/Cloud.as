@@ -11,7 +11,7 @@ package
 		[Embed(source = 'res/cloud4.png')] private const CLOUD4:Class;
 		
 		public var cloudFactor:Number;
-		var CLOUDLESS_ZONE:int = 300;
+		public var CLOUDLESS_ZONE:int = 300;
 		
 		public function Cloud()
 		{

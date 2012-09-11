@@ -57,11 +57,11 @@ package
 				add(cloud);
 			}
 			
-			crow = new Crow(width/2 + 300,height + 800);
+			crow = new Crow(width/2 ,height);
 			add (crow);
 			
 			
-			title = new Title(width / 2 + 200, height + 200);
+			title = new Title(width / 2, height - 400);
 			add (title);
 			
 			cursor = addGraphic(cursorEmitter);
