@@ -8,8 +8,8 @@ package
 		public function StarBackground()
 		{
 			graphic = new Backdrop(BACKGROUND, true, true);
-			graphic.scrollX = 0.1;
-			graphic.scrollY = 0.1;
+			graphic.scrollX = 0.3;
+			graphic.scrollY = 0.3;
 		}
 
 		override public function update():void

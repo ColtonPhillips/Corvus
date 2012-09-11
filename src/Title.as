@@ -8,6 +8,7 @@ package
 		{
 			x = xin;
 			y = yin;
+			
 			graphic = new Text("Corvus", 0, 0);
 			(graphic as Text).size = 400;
 			

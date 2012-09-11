@@ -6,6 +6,12 @@ package
 	import net.flashpunk.FP;
 	public class Note extends Entity
 	{
+		// I actually have no excuse for the last part when it gets to Z
+		// I think I did that casually at home. This work is so tedious.
+		// We should think about how to make this process smarter. Oh well.
+		// Like I fucking care because 
+		// We're in the money!  http://www.youtube.com/watch?v=UJOjTNuuEVw
+		
 		[Embed(source = 'res/note/c.mp3')] public static const C:Class;
 		[Embed(source = 'res/note/cs.mp3')] public static const CS:Class;
 		[Embed(source = 'res/note/d.mp3')] public static const D:Class;
@@ -29,28 +35,43 @@ package
 		[Embed(source = 'res/note/s.mp3')] public static const S:Class
 		[Embed(source = 'res/note/m.mp3')] public static const M:Class
 		
-		public var soundArray:Array = [C,E,F,G,GS,A,B,C1,Z,Y,W,V,U,T,S,M];
-		public var note:Sfx;
+		public var soundArray:Array = [C, E, F, G, GS, A, B, C1, Z, Y, W, V, U, T, S, M];
 		
-		public var ATTENUATIONFACTOR:Number = 1000;
+		public var key:Sfx;
+		
+		// TODO: Compare sound volume level to browser expectations - CP
+		public var ATTENUATIONFACTOR:Number = 100;
 
-		public function Note()
+		public function Note(xin:int, yin:int)
 		{
+			x = xin;
+			y = yin;
+			
+			
+			// TODO: A note key should be set outside of the class - CP
 			var index:Class = soundArray[FP.rand(soundArray.length - 1)];
-			note = new Sfx(index);
+			key = new Sfx(index);
 		}
 
 		override public function update():void
 		{
+			
 		}
 		
 		public function play():void 
 		{
-			// TODO: It's entirely possible that this doesn't work at all
+			// Volume attenuation
 			var thevolume:Number = ATTENUATIONFACTOR / distanceToPoint(FP.camera.x + FP.screen.width / 2, FP.camera.y + FP.screen.height / 2);
-			if (thevolume > 0.9) { thevolume = 0.9;  }
+			if (thevolume < 0.1) return;
+			if (thevolume > 0.6) 
+				thevolume = 0.6;
 			
-			note.play(thevolume);
+			// Pan the sound
+			var pan:Number = FP.scale(x, FP.camera.x, FP.camera.x + FP.screen.width, -1, 1);
+			if (pan < -1) pan = -1; if (pan > 1) pan = 1;
+			
+			// Play the key
+			key.play(thevolume, pan);
 		}
 	}
 }

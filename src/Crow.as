@@ -7,11 +7,13 @@ package
 	
 	public class Crow extends Entity
 	{
-
-		public var note:Note;
 		[Embed(source = 'res/crow.png')] private const CROW:Class;
 		
 		public var crowSpriteMap:Spritemap = new Spritemap(CROW, 143, 126);
+		
+		// MAGIC NUMBERS
+		public static var CROW_SPEED:int = 2.2;
+		
 		public function Crow(xin:int, yin:int)
 		{
 			x = xin;
@@ -43,7 +45,7 @@ package
 				}
 			}
 			
-			moveTowards(FP.world.mouseX,FP.world.mouseY,3);
+			moveTowards(FP.world.mouseX,FP.world.mouseY,CROW_SPEED);
 		}
 	}
 }

@@ -9,10 +9,19 @@ package
 		[Embed(source = 'res/cloud2.png')] private const CLOUD2:Class;
 		[Embed(source = 'res/cloud3.png')] private const CLOUD3:Class;
 		[Embed(source = 'res/cloud4.png')] private const CLOUD4:Class;
-		public function Cloud(xin:int, yin:int)
+		
+		public var cloudFactor:Number;
+		var CLOUDLESS_ZONE:int = 300;
+		
+		public function Cloud()
 		{
-			x = xin;
-			y = yin;
+			x = FP.rand(StarWorld.height);
+			y = FP.rand(StarWorld.width);
+			
+			cloudFactor = FP.rand(StarWorld.height - CLOUDLESS_ZONE);
+			cloudFactor = FP.scale(cloudFactor, 0, height, 0, 1)
+			
+			// TODO: Make clouds based on the cloud Factor
 			
 			var chince:int = FP.rand(3);
 			
@@ -56,9 +65,9 @@ package
 			x += 0.4;
 			
 			// Cloud wraps around screen
-			if (x > StarWorld.RBOUND + 1500)
+			if (x > StarWorld.width + 1500)
 			{
-				x = StarWorld.LBOUND - 1500;
+				x = -1500;
 			}
 			
 		}

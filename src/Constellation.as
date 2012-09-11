@@ -2,23 +2,22 @@ package
 {
 	import net.flashpunk.*;
 	import net.flashpunk.graphics.Image;
+	import net.flashpunk.graphics.Spritemap;
+	import net.flashpunk.tweens.misc.NumTween;
 	import net.flashpunk.utils.Draw;
+	
 	public class Constellation extends Entity
 	{
 		public var stars:Vector.<Star>;
 		public var starPool:Vector.<Star>;
 		public var noteTrigger:NoteTrigger;
+		
 		public function Constellation(xin:int, yin:int)
 		{
 			x = xin;
 			y = yin;
 			starPool = new Vector.<Star>();
 			stars = new Vector.<Star>();
-		}
-		
-		override public function added():void 
-		{
-			
 		}
 
 		override public function update():void
@@ -38,14 +37,14 @@ package
 			}
 		}
 		
+		// Pregenerate placement for stars before "shining" them
 		public function addStarToPool(sx:int,sy:int):void
 		{ 
 			var star:Star = new Star(sx, sy, this)
-			FP.console.log(sx, sy);
 			
 			starPool.push(star);
 			
-			// If first star add to pool and to star vectors
+			// If first star, put it in the world
 			if (stars.length == 0)
 			{
 				stars.push(star);
@@ -55,14 +54,26 @@ package
 			}
 			
 		}
-		
+		// TODO: Tween star sizes cause that's sexy - CP
 		public function addNextStar():void
 		{
-			FP.console.log('addnextstar');
-			if (starPool.length == stars.length) return;
+			if (starPool.length == stars.length) { 
+				// last stars are shit
+				(stars[stars.length - 1].graphic as Spritemap).alpha = 0.8;
+				(stars[stars.length - 1].graphic as Spritemap).scale = 0.7;
+				return;
+			}
 			
 			stars.push(starPool[stars.length]);
 			FP.world.add(stars[stars.length - 1]);
+			
+			// make latest star more vibrant!
+			(stars[stars.length - 1].graphic as Spritemap).alpha = 1;
+			(stars[stars.length - 1].graphic as Spritemap).scale = 1;
+			
+			// last stars are shit
+			(stars[stars.length - 2].graphic as Spritemap).alpha = 0.8;
+			(stars[stars.length - 2].graphic as Spritemap).scale = 0.7;
 		}
 	}
 }
