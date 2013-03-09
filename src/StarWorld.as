@@ -1,5 +1,6 @@
 package
 {
+	import flash.display.StageDisplayState;
 	import net.flashpunk.*;
 	import net.flashpunk.graphics.Emitter;
 	import net.flashpunk.utils.*;
@@ -24,6 +25,11 @@ package
 		public static var height:int = 2000;
 		public static var width:int = 2000;
 		
+		// INTRO TWEENER
+		private var introTween:Tween;
+		private var INTRO_WAIT_RATE:Number = 1/10;
+		private var introRunning:Boolean = true;
+		
 		public function StarWorld()
 		{
 			constellations = new Vector.<Constellation>;
@@ -37,8 +43,15 @@ package
 		
 		override public function begin():void 
 		{
+			
+			
+
 			super.begin();
 			
+			introTween = new Tween(10, Tween.ONESHOT, function():void { introRunning = false; }, Ease.sineIn);
+			addTween(introTween, true);
+
+						
 			background = new StarBackground();
 			add (background);
 			
@@ -61,7 +74,7 @@ package
 			add (crow);
 			
 			
-			title = new Title(width / 2, height - 400);
+			title = new Title(width / 2, height - 800);
 			add (title);
 			
 			cursor = addGraphic(cursorEmitter);
@@ -89,9 +102,34 @@ package
 			}
 		}
 		
+		private function longWait(j:int):void
+		{
+			for (var i:int = 0; i < 5000000; i++) {
+				for (; j > 0; j--) {
+					i = i;
+					j = j;
+				}
+			}
+		}
+		
+		override public function render():void
+		{			
+			super.render();
+			if (introRunning) {
+				Draw.rect(camera.x, camera.y, FP.width, FP.height, 0xddffff, 1 - introTween.percent);
+			}
+		}
+		
 		override public function update():void 
 		{
+			// For first x seconds we want a shutter effect. KIDFRENDLY
 			
+			introTween.update();
+			if (introRunning) {
+				longWait((introTween.percent) * INTRO_WAIT_RATE);
+				FP.console.log(introTween.percent);
+			}
+
 			super.update();
 			
 			// Bird flys out of grass
