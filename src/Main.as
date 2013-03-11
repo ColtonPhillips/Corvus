@@ -8,22 +8,22 @@ package
 	{
 		public function Main()
 		{
-			super(1280, 1024 - 156, 60, false);
+			super(800, 600, 60, false);
 			FP.world = new StarWorld;
-			//FP.console.enable();
+			FP.console.enable();
 		}
 		
 		override public function init():void {
-			// crap dont work
-			//FP.stage.displayState = StageDisplayState.FULL_SCREEN;
+			
 		}
 		
 		override public function focusGained():void {
-			Mouse.hide();
+			// Kids get confused without mouse cursor
+			//Mouse.hide();
 		}
 		
 		override public function focusLost():void {
-			Mouse.show();
+			//Mouse.show();
 		}
 
 	}

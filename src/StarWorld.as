@@ -7,7 +7,7 @@ package
 	public class StarWorld extends World
 	{
 		// ASSETS
-		[Embed(source = 'res/notetrigger.png')] private const CURSOR:Class;
+		[Embed(source = 'res/dust.png')] private const DUST:Class;
 		public var cursorEmitter:Emitter;
 		
 		// ENTITIES
@@ -21,7 +21,6 @@ package
 		
 		// MAGIC NUMBERS
 		public static var CAMERASPEED:int = 5;
-		
 		public static var height:int = 2000;
 		public static var width:int = 2000;
 		
@@ -34,7 +33,7 @@ package
 		{
 			constellations = new Vector.<Constellation>;
 			
-			cursorEmitter = new Emitter(CURSOR);
+			cursorEmitter = new Emitter(DUST);
 			cursorEmitter.relative = false;
 			cursorEmitter.newType('sprinkle', [0]);
 			cursorEmitter.setMotion('sprinkle', 50, 10, 1, 360, 30, 1);
@@ -85,13 +84,6 @@ package
 			// set camera square in the center on the bottom
 			FP.camera.x = (width / 2) - (FP.screen.width / 2);
 			FP.camera.y = height - FP.screen.height;
-			
-			// Create X random constellations
-			/*for (var j:int = 0; j < 15; j++)
-			{
-				makeConstellation(FP.rand(RBOUND + FP.screen.width), FP.rand(DBOUND + FP.height) );
-			}*/
-			
 			
 			// MOCK CONST SPREAD OUT BETTER
 			for (var j:int = 0; j < 2000; j+= FP.screen.width) {
