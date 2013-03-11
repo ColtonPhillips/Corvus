@@ -10,7 +10,7 @@ package
 		{
 			super(800, 600, 60, false);
 			FP.world = new StarWorld;
-			FP.console.enable();
+			//FP.console.enable();
 		}
 		
 		override public function init():void {
@@ -18,7 +18,7 @@ package
 		}
 		
 		override public function focusGained():void {
-			// Kids get confused without mouse cursor
+			// Kids get confused without mouse cursor - CP
 			//Mouse.hide();
 		}
 		

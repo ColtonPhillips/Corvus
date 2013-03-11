@@ -10,7 +10,7 @@ package
 	public class NoteTrigger extends Entity
 	{
 		// ASSETS
-		[Embed(source = 'res/notetrigger.png')] private const NOTETRIGGER:Class;
+		[Embed(source = 'res/dust.png')] private const NOTETRIGGER:Class;
 		public var emitter:Emitter;
 		
 		// REFERENCES

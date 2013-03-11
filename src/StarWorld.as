@@ -3,6 +3,7 @@ package
 	import flash.display.StageDisplayState;
 	import net.flashpunk.*;
 	import net.flashpunk.graphics.Emitter;
+	import net.flashpunk.graphics.Image;
 	import net.flashpunk.utils.*;
 	public class StarWorld extends World
 	{
@@ -37,31 +38,17 @@ package
 			cursorEmitter.relative = false;
 			cursorEmitter.newType('sprinkle', [0]);
 			cursorEmitter.setMotion('sprinkle', 50, 10, 1, 360, 30, 1);
-			
+			cursorEmitter.newType('shoot', [0]);
+			cursorEmitter.setMotion('shoot', 50, 40, 20, 360, 30, 1);			
+			cursorEmitter.newType('stay', [0]);
+			cursorEmitter.setMotion('stay', 50, 2000, 100, 360, 200, 10);			
 		}
 		
-		override public function begin():void 
+		private function loadEntities():void
 		{
-			
-			
-
-			super.begin();
-			
-			introTween = new Tween(10, Tween.ONESHOT, function():void { introRunning = false; }, Ease.sineIn);
-			addTween(introTween, true);
-
-						
 			background = new StarBackground();
 			add (background);
 			
-			grass = new Grass(300,height - 220);
-			add (grass);
-			
-			grass = new Grass(400, height - 160);
-			grass.graphic.scrollX = 0.2;
-			add (grass);
-			
-			// TODO: Match Marta's buttload of vision - CP
 			// Create a buttload of clouds
 			for (var i:int = 0; i < 60; i++)
 			{
@@ -72,10 +59,30 @@ package
 			crow = new Crow(width/2 ,height);
 			add (crow);
 			
+			grass = new Grass(300,height - 220);
+			add (grass);
 			
+			grass = new Grass(400, height - 160);
+			grass.graphic.scrollX = 0.2;
+			add (grass);
+
 			title = new Title(width / 2, height - 800);
 			add (title);
 			
+			for (var j:int = 0; j < width; j+= FP.screen.width) {
+				
+				for (var k:int = 0; k < height; k+= FP.screen.height) {
+						makeConstellation(j, k);	makeConstellation(j + 200, k + 200);
+				}
+			}
+		}
+		
+		private function setupGame():void
+		{
+			introTween = new Tween(4, Tween.ONESHOT, function():void { introRunning = false; }, Ease.sineIn);
+			addTween(introTween, true);
+			
+			// cursorEmitter needs to be on a Entity, prols.
 			cursor = addGraphic(cursorEmitter);
 			
 			// The first screen should have a constellation visible
@@ -84,14 +91,13 @@ package
 			// set camera square in the center on the bottom
 			FP.camera.x = (width / 2) - (FP.screen.width / 2);
 			FP.camera.y = height - FP.screen.height;
-			
-			// MOCK CONST SPREAD OUT BETTER
-			for (var j:int = 0; j < 2000; j+= FP.screen.width) {
-				
-				for (var k:int = 0; k < 2000; k+= FP.screen.height) {
-						makeConstellation(j, k);	makeConstellation(j + 200, k + 200);
-				}
-			}
+		}
+		
+		override public function begin():void 
+		{
+			super.begin();
+			loadEntities();
+			setupGame();
 		}
 		
 		private function longWait(j:int):void
@@ -114,21 +120,22 @@ package
 		
 		override public function update():void 
 		{
-			// For first x seconds we want a shutter effect. KIDFRENDLY
+			super.update();
+						
+			// HACK: Figure it out yourself, genius, but this all sucks.
+			bringToFront(grass);
 			
+			// For first x seconds we want a shutter effect. KIDFRENDLY
 			introTween.update();
 			if (introRunning) {
 				longWait((introTween.percent) * INTRO_WAIT_RATE);
-				FP.console.log(introTween.percent);
+				crow.y = crow.y -1;
 			}
-
-			super.update();
-			
-			// Bird flys out of grass
-			bringToFront(grass);
 			
 			cursorEmitter.emit('sprinkle', FP.world.mouseX, FP.world.mouseY);
 			cursorEmitter.emit('sprinkle', FP.world.mouseX, FP.world.mouseY);
+			cursorEmitter.emit('shoot', FP.world.mouseX, FP.world.mouseY);
+			cursorEmitter.emit('stay', FP.world.mouseX, FP.world.mouseY);
 			
 			moveCameraFromMouse();
 			boundCamera();
@@ -186,7 +193,7 @@ package
 			return y;
 		}
 		
-		// Nailed it. Or did I ? Fuck no I didn't! :D
+		// Nailed it. Or did I ? No I didn't! :D
 		public function boundCamera():void
 		{
 			// TODO: width - FP.screen.width should be a function. :D - CP
