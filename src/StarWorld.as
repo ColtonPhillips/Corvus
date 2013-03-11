@@ -66,7 +66,7 @@ package
 			grass.graphic.scrollX = 0.2;
 			add (grass);
 
-			title = new Title(width / 2, height - 800);
+			title = new Title(width / 2, height - 450);
 			add (title);
 			
 			for (var j:int = 0; j < width; j+= FP.screen.width) {
@@ -114,7 +114,7 @@ package
 		{			
 			super.render();
 			if (introRunning) {
-				Draw.rect(camera.x, camera.y, FP.width, FP.height, 0xddffff, 1 - introTween.percent);
+				Draw.rect(camera.x, camera.y, FP.width, FP.height, 0xffffff, 1 - introTween.percent);
 			}
 		}
 		
