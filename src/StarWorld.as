@@ -135,7 +135,9 @@ package
 			cursorEmitter.emit('sprinkle', FP.world.mouseX, FP.world.mouseY);
 			cursorEmitter.emit('sprinkle', FP.world.mouseX, FP.world.mouseY);
 			cursorEmitter.emit('shoot', FP.world.mouseX, FP.world.mouseY);
-			cursorEmitter.emit('stay', FP.world.mouseX, FP.world.mouseY);
+			if (FP.rand(10) == 2){
+				cursorEmitter.emit('stay', FP.world.mouseX, FP.world.mouseY);
+			}
 			
 			moveCameraFromMouse();
 			boundCamera();
