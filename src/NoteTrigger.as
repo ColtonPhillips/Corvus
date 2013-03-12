@@ -10,7 +10,7 @@ package
 	public class NoteTrigger extends Entity
 	{
 		// ASSETS
-		[Embed(source = 'res/dust.png')] private const NOTETRIGGER:Class;
+		[Embed(source = 'res/dust.png')] private const DUST:Class;
 		public var emitter:Emitter;
 		
 		// REFERENCES
@@ -31,12 +31,12 @@ package
 			x = xin;
 			y = yin;
 			
-			graphic = emitter = new Emitter(NOTETRIGGER);
+			graphic = emitter = new Emitter(DUST);
 			emitter.relative = false;
 			
 			// when it's not moving
 			emitter.newType('sprinkle', [0]);
-			emitter.setMotion('sprinkle', 50, 10, 1, 360, 30, 1);
+			emitter.setMotion('sprinkle', 50, 20, 2, 360, 30, 1);
 			
 			// when it's moving
 			emitter.newType('motion', [0]);
@@ -50,7 +50,7 @@ package
 			// If only star, play no sound, and emit fewer sparkles
 			if (stars.length == 1)
 			{
-				var ran:int = FP.rand(2);
+				var ran:int = FP.rand(3);
 				if (ran == 1) 
 					emitter.emit('sprinkle', x, y);
 				return;

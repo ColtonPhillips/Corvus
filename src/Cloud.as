@@ -62,13 +62,13 @@ package
 		override public function update():void
 		{
 			super.update();
-			x += 0.4;
+			//x += 0.4;
 			
 			// Cloud wraps around screen
-			if (x > StarWorld.width + 1500)
-			{
-				x = -1500;
-			}
+			//if (x > StarWorld.width + 1500)
+			//{
+			//	x = -1500;
+			//}
 			
 		}
 
