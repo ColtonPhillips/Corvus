@@ -9,7 +9,7 @@ package
 		public function Main()
 		{
 			super(800, 600, 60, false);
-			FP.world = new StarWorld;
+			FP.world = new UVicWorld;
 			//FP.console.enable();
 		}
 		

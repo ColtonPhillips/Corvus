@@ -12,7 +12,7 @@ package
 		public var crowSpriteMap:Spritemap = new Spritemap(CROW, 143, 126);
 		
 		// MAGIC NUMBERS
-		public static var CROW_SPEED:int = 2.2;
+		public static var CROW_SPEED:Number = 1.8;
 		
 		public function Crow(xin:int, yin:int)
 		{
