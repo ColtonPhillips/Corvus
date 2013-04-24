@@ -1,4 +1,6 @@
 *.db
 bin/Corvus.swf
+/bin
 */bin/*
+/obj
 *~
