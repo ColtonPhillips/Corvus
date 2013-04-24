@@ -10,8 +10,8 @@ package
 	public class Star extends Entity
 	{	
 		// ASSETS
-		[Embed(source = 'res/star.png')] private const STAR:Class;
-		[Embed(source = 'res/dust.png')] private const DUST:Class;
+		[Embed(source = 'assets/star.png')] private const STAR:Class;
+		[Embed(source = 'assets/dust.png')] private const DUST:Class;
 		public var starSpriteMap:Spritemap = new Spritemap(STAR, 36, 50);
 		public var emitter:Emitter;
 		private var hasExploded:Boolean = false;

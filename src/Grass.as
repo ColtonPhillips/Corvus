@@ -4,7 +4,7 @@ package
 	import net.flashpunk.graphics.Backdrop;
 	public class Grass extends Entity
 	{
-		[Embed(source = 'res/grass.png')] private const GRASS:Class;
+		[Embed(source = 'assets/grass.png')] private const GRASS:Class;
 		public function Grass(xin:int, yin:int)
 		{
 			x = xin;

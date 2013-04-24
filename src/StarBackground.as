@@ -4,7 +4,7 @@ package
 	import net.flashpunk.graphics.Backdrop;
 	public class StarBackground extends Entity
 	{
-		[Embed(source = 'res/background.png')] private const BACKGROUND:Class;
+		[Embed(source = 'assets/background.png')] private const BACKGROUND:Class;
 		public function StarBackground()
 		{
 			graphic = new Backdrop(BACKGROUND, true, true);

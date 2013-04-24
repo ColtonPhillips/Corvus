@@ -5,10 +5,10 @@ package
 	import net.flashpunk.graphics.Image;
 	public class Cloud extends Entity
 	{
-		[Embed(source = 'res/cloud1.png')] private const CLOUD1:Class;
-		[Embed(source = 'res/cloud2.png')] private const CLOUD2:Class;
-		[Embed(source = 'res/cloud3.png')] private const CLOUD3:Class;
-		[Embed(source = 'res/cloud4.png')] private const CLOUD4:Class;
+		[Embed(source = 'assets/cloud1.png')] private const CLOUD1:Class;
+		[Embed(source = 'assets/cloud2.png')] private const CLOUD2:Class;
+		[Embed(source = 'assets/cloud3.png')] private const CLOUD3:Class;
+		[Embed(source = 'assets/cloud4.png')] private const CLOUD4:Class;
 		
 		public var cloudFactor:Number;
 		public var CLOUDLESS_ZONE:int = 300;

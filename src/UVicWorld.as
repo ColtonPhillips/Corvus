@@ -7,7 +7,7 @@ package
 	import net.flashpunk.FP;
 	public class UVicWorld extends World
 	{
-		[Embed(source = 'res/uvgd/uvgd.mp3')] private const BUMPER:Class;
+		[Embed(source = 'assets/uvgd/uvgd.mp3')] private const BUMPER:Class;
 		
 		// After bumper finishes, change the scene.
 		public var bumperSound:Sfx = new Sfx(BUMPER,onSoundFinished);

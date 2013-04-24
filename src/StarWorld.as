@@ -8,7 +8,7 @@ package
 	public class StarWorld extends World
 	{
 		// ASSETS
-		[Embed(source = 'res/dust.png')] private const DUST:Class;
+		[Embed(source = 'assets/dust.png')] private const DUST:Class;
 		public var cursorEmitter:Emitter;
 		
 		// ENTITIES

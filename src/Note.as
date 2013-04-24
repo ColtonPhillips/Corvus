@@ -12,30 +12,30 @@ package
 		// Like I fucking care because 
 		// We're in the money!  http://www.youtube.com/watch?v=UJOjTNuuEVw
 		
-		[Embed(source = 'res/note/c.mp3')] public static const C:Class;
-		[Embed(source = 'res/note/cs.mp3')] public static const CS:Class;
-		[Embed(source = 'res/note/d.mp3')] public static const D:Class;
-		[Embed(source = 'res/note/ds.mp3')] public static const DS:Class;
-		[Embed(source = 'res/note/e.mp3')] public static const E:Class;
-		[Embed(source = 'res/note/f.mp3')] public static const F:Class;
-		[Embed(source = 'res/note/fs.mp3')] public static const FS:Class;
-		[Embed(source = 'res/note/g.mp3')] public static const G:Class;
-		[Embed(source = 'res/note/gS.mp3')] public static const GS:Class;
-		[Embed(source = 'res/note/a.mp3')] public static const A:Class;
-		[Embed(source = 'res/note/as.mp3')] public static const AS:Class;
-		[Embed(source = 'res/note/b.mp3')] public static const B:Class;
-		[Embed(source = 'res/note/c1.mp3')] public static const C1:Class;
-		[Embed(source = 'res/note/z.mp3')] public static const Z:Class
-		[Embed(source = 'res/note/y.mp3')] public static const Y:Class
-		[Embed(source = 'res/note/x.mp3')] public static const X:Class
-		[Embed(source = 'res/note/w.mp3')] public static const W:Class
-		[Embed(source = 'res/note/v.mp3')] public static const V:Class
-		[Embed(source = 'res/note/u.mp3')] public static const U:Class
-		[Embed(source = 'res/note/t.mp3')] public static const T:Class
-		[Embed(source = 'res/note/s.mp3')] public static const S:Class
-		[Embed(source = 'res/note/m.mp3')] public static const M:Class
+		[Embed(source = 'assets/note/c.mp3')] public static const C:Class;
+		[Embed(source = 'assets/note/cs.mp3')] public static const CS:Class;
+		[Embed(source = 'assets/note/d.mp3')] public static const D:Class;
+		[Embed(source = 'assets/note/ds.mp3')] public static const DS:Class;
+		[Embed(source = 'assets/note/e.mp3')] public static const E:Class;
+		[Embed(source = 'assets/note/f.mp3')] public static const F:Class;
+		[Embed(source = 'assets/note/fs.mp3')] public static const FS:Class;
+		[Embed(source = 'assets/note/g.mp3')] public static const G:Class;
+		[Embed(source = 'assets/note/gS.mp3')] public static const GS:Class;
+		[Embed(source = 'assets/note/a.mp3')] public static const A:Class;
+		[Embed(source = 'assets/note/as.mp3')] public static const AS:Class;
+		[Embed(source = 'assets/note/b.mp3')] public static const B:Class;
+		[Embed(source = 'assets/note/c1.mp3')] public static const C1:Class;
+		[Embed(source = 'assets/note/z.mp3')] public static const Z:Class
+		[Embed(source = 'assets/note/y.mp3')] public static const Y:Class
+		[Embed(source = 'assets/note/x.mp3')] public static const X:Class
+		[Embed(source = 'assets/note/w.mp3')] public static const W:Class
+		[Embed(source = 'assets/note/v.mp3')] public static const V:Class
+		[Embed(source = 'assets/note/u.mp3')] public static const U:Class
+		[Embed(source = 'assets/note/t.mp3')] public static const T:Class
+		[Embed(source = 'assets/note/s.mp3')] public static const S:Class
+		[Embed(source = 'assets/note/m.mp3')] public static const M:Class
 		
-		public var soundArray:Array = [C, E, F, G, GS, A, B, C1, Z, Y, W, V, U, T, S, M];
+		public var soundArray:Array = [C,D,DS,F, FS,GS, A, B, C1];
 		
 		public var key:Sfx;
 		

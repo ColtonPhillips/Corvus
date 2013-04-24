@@ -6,10 +6,10 @@ package
 	
 	public class UVicBackground extends Entity
 	{
-		[Embed(source = 'res/uvgd/uvgd1.png')] private const UVGD1:Class;
-		[Embed(source = 'res/uvgd/uvgd2.png')] private const UVGD2:Class;
-		[Embed(source = 'res/uvgd/uvgd3.png')] private const UVGD3:Class;
-		[Embed(source = 'res/uvgd/uvgd4.png')] private const UVGD4:Class;
+		[Embed(source = 'assets/uvgd/uvgd1.png')] private const UVGD1:Class;
+		[Embed(source = 'assets/uvgd/uvgd2.png')] private const UVGD2:Class;
+		[Embed(source = 'assets/uvgd/uvgd3.png')] private const UVGD3:Class;
+		[Embed(source = 'assets/uvgd/uvgd4.png')] private const UVGD4:Class;
 		
 		// TODO: This is brittle and computer dependant.
 		// A better solution would be to inspect the amount of time passed in the 

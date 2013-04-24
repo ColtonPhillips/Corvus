@@ -7,7 +7,7 @@ package
 	
 	public class Crow extends Entity
 	{
-		[Embed(source = 'res/crow.png')] private const CROW:Class;
+		[Embed(source = 'assets/crow.png')] private const CROW:Class;
 		
 		public var crowSpriteMap:Spritemap = new Spritemap(CROW, 143, 126);
 		
