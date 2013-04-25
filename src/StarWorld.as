@@ -25,11 +25,6 @@ package
 		public static var height:int = 2000;
 		public static var width:int = 2000;
 		
-		// INTRO TWEENER
-		private var introTween:Tween;
-		private var INTRO_WAIT_RATE:Number = 1/10;
-		private var introRunning:Boolean = true;
-		
 		public function StarWorld()
 		{
 			constellations = new Vector.<Constellation>;
@@ -78,10 +73,7 @@ package
 		}
 		
 		private function setupGame():void
-		{
-			introTween = new Tween(4, Tween.ONESHOT, function():void { introRunning = false; }, Ease.sineIn);
-			addTween(introTween, true);
-			
+		{			
 			// cursorEmitter needs to be on a Entity, prols.
 			cursor = addGraphic(cursorEmitter);
 			
@@ -100,22 +92,9 @@ package
 			setupGame();
 		}
 		
-		private function longWait(j:int):void
-		{
-			for (var i:int = 0; i < 5000000; i++) {
-				for (; j > 0; j--) {
-					i = i;
-					j = j;
-				}
-			}
-		}
-		
 		override public function render():void
 		{			
 			super.render();
-			if (introRunning) {
-				Draw.rect(camera.x, camera.y, FP.width, FP.height, 0xffffff, 1 - introTween.percent);
-			}
 		}
 		
 		override public function update():void 
@@ -124,13 +103,6 @@ package
 						
 			// HACK: Figure it out yourself, genius, but this all sucks.
 			bringToFront(grass);
-			
-			// For first x seconds we want a shutter effect. KIDFRENDLY
-			introTween.update();
-			if (introRunning) {
-				longWait((introTween.percent) * INTRO_WAIT_RATE);
-				crow.y = crow.y -1;
-			}
 			
 			cursorEmitter.emit('sprinkle', FP.world.mouseX, FP.world.mouseY);
 			cursorEmitter.emit('sprinkle', FP.world.mouseX, FP.world.mouseY);
