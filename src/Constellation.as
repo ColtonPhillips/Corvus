@@ -54,7 +54,7 @@ package
 			}
 			
 		}
-		// TODO: Tween star sizes cause that's sexy - CP
+		
 		public function addNextStar():void
 		{
 			if (starPool.length == stars.length) { 

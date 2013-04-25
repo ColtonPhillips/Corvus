@@ -18,7 +18,6 @@ package
 		}
 		
 		override public function focusGained():void {
-			// Kids get confused without mouse cursor - CP
 			//Mouse.hide();
 		}
 		

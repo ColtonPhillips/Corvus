@@ -11,8 +11,6 @@ package
 		public var soundArray:Array = [Assets.SND_C, Assets.SND_D, Assets.SND_DS, Assets.SND_F, Assets.SND_GS, Assets.SND_A, Assets.SND_B, Assets.SND_C1];
 		
 		public var key:Sfx;
-		
-		// TODO: Compare sound volume level to browser expectations - CP
 		public var ATTENUATIONFACTOR:Number = 100;
 
 		public function Note(xin:int, yin:int)
@@ -20,15 +18,13 @@ package
 			x = xin;
 			y = yin;
 			
-			
-			// TODO: A note key should be set outside of the class - CP
 			var index:Class = soundArray[FP.rand(soundArray.length - 1)];
 			key = new Sfx(index);
 		}
 
 		override public function update():void
 		{
-			
+			super.update();
 		}
 		
 		public function play():void 

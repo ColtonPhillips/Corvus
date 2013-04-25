@@ -13,7 +13,6 @@ package
 		public var emitter:Emitter;
 		
 		// REFERENCES
-		// TODO: Maybe don't need all refs
 		public var constellation:Constellation;
 		public var target:Star;
 		public var stars:Vector.<Star>;
