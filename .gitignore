@@ -3,4 +3,6 @@ bin/Corvus.swf
 /bin
 */bin/*
 /obj
+/obj/CorvusConfig.xml
+/obj/CorvusConfig.old
 *~
