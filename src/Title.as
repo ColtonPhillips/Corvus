@@ -4,14 +4,15 @@ package
 	import net.flashpunk.graphics.Text;
 	public class Title extends Entity
 	{
+		public var text:Text;
 		public function Title(xin:int, yin:int)
 		{
 			x = xin;
 			y = yin;
 			
-			graphic = new Text("Corvus", 0, 0);
-			(graphic as Text).size = 1000; // seems like it's capped at something
-			(graphic as Text).centerOrigin();
+			graphic = text = new Text("Corvus", 0, 0);
+			text.size = 1000; // seems like it's capped at something
+			text.centerOrigin();
 			
 		}
 
@@ -20,8 +21,8 @@ package
 			super.update();
 			
 			// Fade out the title
-			if ( (graphic as Text).alpha != 0 )
-				(graphic as Text).alpha -= 0.006
+			if (text.alpha != 0)
+				text.alpha -= 0.006
 		}
 
 	}
