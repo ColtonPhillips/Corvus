@@ -1,5 +1,6 @@
 package
 {
+	import common.Assets;
 	import net.flashpunk.Entity;
 	import net.flashpunk.graphics.Emitter;
 	import net.flashpunk.graphics.*;
@@ -9,8 +10,6 @@ package
 
 	public class NoteTrigger extends Entity
 	{
-		// ASSETS
-		[Embed(source = 'assets/dust.png')] private const DUST:Class;
 		public var emitter:Emitter;
 		
 		// REFERENCES
@@ -31,7 +30,7 @@ package
 			x = xin;
 			y = yin;
 			
-			graphic = emitter = new Emitter(DUST);
+			graphic = emitter = new Emitter(Assets.IMG_DUST);
 			emitter.relative = false;
 			
 			// when it's not moving

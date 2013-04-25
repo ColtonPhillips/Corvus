@@ -1,15 +1,15 @@
 package
 {
+	import common.Assets;
 	import net.flashpunk.Entity;
 	import net.flashpunk.graphics.Backdrop;
 	public class Grass extends Entity
 	{
-		[Embed(source = 'assets/grass.png')] private const GRASS:Class;
 		public function Grass(xin:int, yin:int)
 		{
 			x = xin;
 			y = yin;
-			graphic = new Backdrop(GRASS, true, false);
+			graphic = new Backdrop(Assets.IMG_GRASS, true, false);
 			graphic.scrollX = 0.4;
 			
 		}

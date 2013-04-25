@@ -1,5 +1,6 @@
 package
 {
+	import common.Assets;
 	import flash.display.StageDisplayState;
 	import net.flashpunk.*;
 	import net.flashpunk.graphics.Emitter;
@@ -8,7 +9,6 @@ package
 	public class StarWorld extends World
 	{
 		// ASSETS
-		[Embed(source = 'assets/dust.png')] private const DUST:Class;
 		public var cursorEmitter:Emitter;
 		
 		// ENTITIES
@@ -34,7 +34,7 @@ package
 		{
 			constellations = new Vector.<Constellation>;
 			
-			cursorEmitter = new Emitter(DUST);
+			cursorEmitter = new Emitter(Assets.IMG_DUST);
 			cursorEmitter.relative = false;
 			cursorEmitter.newType('sprinkle', [0]);
 			cursorEmitter.setMotion('sprinkle', 50, 10, 1, 360, 30, 1);

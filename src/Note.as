@@ -1,41 +1,14 @@
 package
 {
+	import common.Assets;
 	import net.flashpunk.debug.Console;
 	import net.flashpunk.Entity;
 	import net.flashpunk.Sfx;
 	import net.flashpunk.FP;
 	public class Note extends Entity
 	{
-		// I actually have no excuse for the last part when it gets to Z
-		// I think I did that casually at home. This work is so tedious.
-		// We should think about how to make this process smarter. Oh well.
-		// Like I fucking care because 
-		// We're in the money!  http://www.youtube.com/watch?v=UJOjTNuuEVw
-		
-		[Embed(source = 'assets/note/c.mp3')] public static const C:Class;
-		[Embed(source = 'assets/note/cs.mp3')] public static const CS:Class;
-		[Embed(source = 'assets/note/d.mp3')] public static const D:Class;
-		[Embed(source = 'assets/note/ds.mp3')] public static const DS:Class;
-		[Embed(source = 'assets/note/e.mp3')] public static const E:Class;
-		[Embed(source = 'assets/note/f.mp3')] public static const F:Class;
-		[Embed(source = 'assets/note/fs.mp3')] public static const FS:Class;
-		[Embed(source = 'assets/note/g.mp3')] public static const G:Class;
-		[Embed(source = 'assets/note/gS.mp3')] public static const GS:Class;
-		[Embed(source = 'assets/note/a.mp3')] public static const A:Class;
-		[Embed(source = 'assets/note/as.mp3')] public static const AS:Class;
-		[Embed(source = 'assets/note/b.mp3')] public static const B:Class;
-		[Embed(source = 'assets/note/c1.mp3')] public static const C1:Class;
-		[Embed(source = 'assets/note/z.mp3')] public static const Z:Class
-		[Embed(source = 'assets/note/y.mp3')] public static const Y:Class
-		[Embed(source = 'assets/note/x.mp3')] public static const X:Class
-		[Embed(source = 'assets/note/w.mp3')] public static const W:Class
-		[Embed(source = 'assets/note/v.mp3')] public static const V:Class
-		[Embed(source = 'assets/note/u.mp3')] public static const U:Class
-		[Embed(source = 'assets/note/t.mp3')] public static const T:Class
-		[Embed(source = 'assets/note/s.mp3')] public static const S:Class
-		[Embed(source = 'assets/note/m.mp3')] public static const M:Class
-		
-		public var soundArray:Array = [C,D,DS,F, FS,GS, A, B, C1];
+		// This sucks hard - CP
+		public var soundArray:Array = [Assets.SND_C, Assets.SND_D, Assets.SND_DS, Assets.SND_F, Assets.SND_GS, Assets.SND_A, Assets.SND_B, Assets.SND_C1];
 		
 		public var key:Sfx;
 		

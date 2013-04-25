@@ -1,15 +1,14 @@
 package
 {
+	import common.Assets;
 	import net.flashpunk.*;
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.graphics.Spritemap;
 	import net.flashpunk.utils.Input;
 	
 	public class Crow extends Entity
-	{
-		[Embed(source = 'assets/crow.png')] private const CROW:Class;
-		
-		public var crowSpriteMap:Spritemap = new Spritemap(CROW, 143, 126);
+	{		
+		public var crowSpriteMap:Spritemap = new Spritemap(Assets.IMG_CROW, 143, 126);
 		
 		// MAGIC NUMBERS
 		public static var CROW_SPEED:Number = 1.8;

@@ -1,5 +1,6 @@
 package
 {
+	import common.Assets;
 	import net.flashpunk.*;
 	import net.flashpunk.graphics.Spritemap;
 	import net.flashpunk.utils.Draw;
@@ -9,10 +10,7 @@ package
 	
 	public class Star extends Entity
 	{	
-		// ASSETS
-		[Embed(source = 'assets/star.png')] private const STAR:Class;
-		[Embed(source = 'assets/dust.png')] private const DUST:Class;
-		public var starSpriteMap:Spritemap = new Spritemap(STAR, 36, 50);
+		public var starSpriteMap:Spritemap = new Spritemap(Assets.IMG_STAR, 36, 50);
 		public var emitter:Emitter;
 		private var hasExploded:Boolean = false;
 		
@@ -39,7 +37,7 @@ package
 			(graphic as Spritemap).smooth = true;
 			(graphic as Spritemap).alpha = 0.8;
 			
-			emitter = new Emitter(DUST);
+			emitter = new Emitter(Assets.IMG_DUST);
 			emitter.relative = false;
 			
 			// when it's not moving
