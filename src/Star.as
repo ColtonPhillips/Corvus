@@ -10,7 +10,7 @@ package
 	
 	public class Star extends Entity
 	{	
-		public var starSpriteMap:Spritemap = new Spritemap(Assets.IMG_STAR, 36, 50);
+		public var sprite:Spritemap = new Spritemap(Assets.IMG_STAR, 36, 50);
 		public var emitter:Emitter;
 		private var hasExploded:Boolean = false;
 		
@@ -29,10 +29,10 @@ package
 		
 			setHitbox(20, 20, 10, 10);
 			
-			starSpriteMap.add("shimmer", [0, 1, 2], 4, true);
-			graphic = starSpriteMap;
-			starSpriteMap.centerOrigin();
-			starSpriteMap.play("shimmer");
+			sprite.add("shimmer", [0, 1, 2], 4, true);
+			graphic = sprite;
+			sprite.centerOrigin();
+			sprite.play("shimmer");
 			(graphic as Spritemap).scale = 1.4;
 			(graphic as Spritemap).smooth = true;
 			(graphic as Spritemap).alpha = 0.8;
