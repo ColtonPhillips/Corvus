@@ -33,9 +33,9 @@ package
 			graphic = sprite;
 			sprite.centerOrigin();
 			sprite.play("shimmer");
-			(graphic as Spritemap).scale = 1.4;
-			(graphic as Spritemap).smooth = true;
-			(graphic as Spritemap).alpha = 0.8;
+			sprite.scale = 1.4;
+			sprite.smooth = true;
+			sprite.alpha = 0.8;
 			
 			emitter = new Emitter(Assets.IMG_DUST);
 			emitter.relative = false;

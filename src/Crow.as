@@ -8,7 +8,7 @@ package
 	
 	public class Crow extends Entity
 	{		
-		public var crowSpriteMap:Spritemap = new Spritemap(Assets.IMG_CROW, 143, 126);
+		public var sprite:Spritemap = new Spritemap(Assets.IMG_CROW, 143, 126);
 		
 		// MAGIC NUMBERS
 		public static var CROW_SPEED:Number = 1.8;
@@ -17,13 +17,15 @@ package
 		{
 			x = xin;
 			y = yin;
+			
+			graphic = sprite;
 			type = "crow";
 			
-			crowSpriteMap.add("fly", [0,1,2,3,2,1], 15, true);
-			graphic = crowSpriteMap;
-			crowSpriteMap.play("fly");
+			sprite.add("fly", [0,1,2,3,2,1], 15, true);
 			
-			(graphic as Spritemap).centerOrigin();
+			sprite.play("fly");
+			
+			sprite.centerOrigin();
 			setHitbox(40, 40, 20, 20);
 		}
 		
@@ -36,11 +38,11 @@ package
 				{
 					if (x < FP.world.mouseX) 
 				{
-					(graphic as Image).flipped = true;
+					sprite.flipped = true;
 				}
 				else 
 				{
-					(graphic as Image).flipped = false;
+					sprite.flipped = false;
 				}
 			}
 			
