@@ -16,7 +16,7 @@ package
 		{
 			add(new UVicBackground);
 			
-			bumperSound.play();
+			bumperSound.play(0.1);
 			
 		}
 		
